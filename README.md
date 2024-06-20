@@ -20,17 +20,17 @@
 
 ## itemsテーブル
 
-| Column      | Type      | Options     |
-| ----------- | --------- | ----------- |
-| name        | string    | null: false |
-| description | text      | null: false |
-| category    | string    | null: false |
-| condition   | string    | null: false |
-| charge      | string    | null: false |
-| ship_from   | string    | null: false |
-| days        | string    | null: false |
-| price       | integer   | null: false |
-| user        | reference | null: false foreign_key: true |
+| Column            | Type      | Options     |
+| ----------------- | --------- | ----------- |
+| name              | string    | null: false |
+| description       | text      | null: false |
+| category_id       | integer   | null: false |
+| condition_id      | integer   | null: false |
+| charge_id         | integer   | null: false |
+| ship_from_id      | integer   | null: false |
+| until_shipping_id | integer   | null: false |
+| price             | integer   | null: false |
+| user              | reference | null: false foreign_key: true |
 
 ### Association
 
@@ -54,12 +54,12 @@
 
 | Column         | Type      | Options     |
 | -------------- | --------- | ----------- |
-| post           | integer   | null: false |
-| prefectures    | string    | null: false |
+| post           | string    | null: false |
+| ship_from_id   | integer   | null: false |
 | municipalities | string    | null: false |
-| street_address | integer   | null: false |
+| street_address | string    | null: false |
 | building_name  | string    |             |
-| phone_number   | integer   | null: false |
+| phone_number   | string    | null: false |
 | purchase       | reference | null: false, foreign_key: true|
 
 ### Association
