@@ -30,7 +30,7 @@
 | ship_from_id      | integer   | null: false |
 | until_shipping_id | integer   | null: false |
 | price             | integer   | null: false |
-| user              | reference | null: false foreign_key: true |
+| user              | references | null: false foreign_key: true |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | street_address | string    | null: false |
 | building_name  | string    |             |
 | phone_number   | string    | null: false |
-| purchase       | reference | null: false, foreign_key: true|
+| purchase       | references | null: false, foreign_key: true|
 
 ### Association
 
