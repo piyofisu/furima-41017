@@ -1,4 +1,4 @@
-class Until_shipping < ActiveHash::Base
+class UntilShipping < ActiveHash::Base
   
   self.data = [
    { id: 1, name: '---' }, 
