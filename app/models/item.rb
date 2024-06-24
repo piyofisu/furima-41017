@@ -3,4 +3,5 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :charge
+  belongs_to :prefecture
 end

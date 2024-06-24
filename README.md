@@ -27,7 +27,7 @@
 | category_id       | integer   | null: false |
 | condition_id      | integer   | null: false |
 | charge_id         | integer   | null: false |
-| ship_from_id      | integer   | null: false |
+| prefecture_id     | integer   | null: false |
 | until_shipping_id | integer   | null: false |
 | price             | integer   | null: false |
 | user              | references | null: false foreign_key: true |
@@ -52,15 +52,15 @@
 
 ## addressesテーブル
 
-| Column         | Type      | Options     |
-| -------------- | --------- | ----------- |
-| post           | string    | null: false |
-| ship_from_id   | integer   | null: false |
-| municipalities | string    | null: false |
-| street_address | string    | null: false |
-| building_name  | string    |             |
-| phone_number   | string    | null: false |
-| purchase       | references | null: false, foreign_key: true|
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| post            | string     | null: false |
+| prefecture_id   | integer    | null: false |
+| municipalities  | string     | null: false |
+| street_address  | string     | null: false |
+| building_name   | string     |             |
+| phone_number    | string     | null: false |
+| purchase        | references | null: false, foreign_key: true|
 
 ### Association
 
