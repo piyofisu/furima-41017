@@ -61,7 +61,17 @@ RSpec.describe Item, type: :model do
       it '価格が全角数値では保存できない' do
         @item.price = "５０００"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid")
+        expect(@item.errors.full_messages).to include('Price is invalid')
+      end
+      it '価格が299円以下では保存できない' do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is invalid')
+      end
+      it '価格が10000000円以上では保存できない' do
+        @item.price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is invalid')
       end
     end
   end
