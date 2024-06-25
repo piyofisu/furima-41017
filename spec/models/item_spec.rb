@@ -19,12 +19,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it '商品名が空では保存できない' do
-        @item.name = ""
+        @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it '商品の説明が空では保存できない' do
-        @item.description = ""
+        @item.description = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
@@ -54,12 +54,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Until shipping cant't be blank")
       end
       it '価格が空では保存できない' do
-        @item.price = ""
+        @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid")
+        expect(@item.errors.full_messages).to include('Price is invalid')
       end
       it '価格が全角数値では保存できない' do
-        @item.price = "５０００"
+        @item.price = '５０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is invalid')
       end
