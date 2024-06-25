@@ -10,3 +10,4 @@ function calc (){
 }
 
 window.addEventListener('load', calc)
+window.addEventListener('turbo:render', calc)
