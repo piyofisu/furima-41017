@@ -37,10 +37,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if user_singed_in? && current_user.id == @item.user_id
-      item = Item.find(params[:id])
-      item.destroy
-    end
+    item = Item.find(params[:id])
+      if user_singed_in? && current_user.id == @item.user_id  
+        item.destroy
+      end
     redirect_to root_path
   end
 
