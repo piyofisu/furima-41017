@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :charge
   belongs_to :prefecture
   belongs_to :until_shipping
+  has_one_  :purchase
 
   validates :name, :description, :image, presence: true
   validates :category_id, :condition_id, :charge_id, :prefecture_id,
