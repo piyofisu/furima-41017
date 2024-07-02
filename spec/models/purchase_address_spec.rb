@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe PurchaseAddress, type: :model do
   before do
+    user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
-    @purchase_address = FactoryBot.build(:purchase_address, item_id: item.id, user_id: item.user_id)
+    @purchase_address = FactoryBot.build(:purchase_address, item_id: item.id, user_id: user.id)
     sleep 0.1
   end
 
@@ -48,6 +49,26 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.phone_number = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
+      end
+      it 'phone_numberが9桁以下では保存できない' do
+        @purchase_address.phone_number = '123456789'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number must be a number between 10 and 11 digits.")
+      end
+      it 'phone_numberが12桁以上では保存できない' do
+        @purchase_address.phone_number = '123456789098'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number must be a number between 10 and 11 digits.")
+      end
+      it 'phone_numberに英字が含まれている場合保存できない' do
+        @purchase_address.phone_number = '123456789k'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number must be a number between 10 and 11 digits.")
+      end
+      it 'phone_numberに全角数字が含まれている場合保存できない' do
+        @purchase_address.phone_number = '１２３４５６７８９０'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number must be a number between 10 and 11 digits.")
       end
       it 'tokenが空では保存できない' do
         @purchase_address.token = ''
