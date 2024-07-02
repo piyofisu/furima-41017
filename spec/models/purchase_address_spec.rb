@@ -27,7 +27,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'postが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @purchase_address.post = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post is invalid. Include hyphen(-)")
+        expect(@purchase_address.errors.full_messages).to include('Post is invalid. Include hyphen(-)')
       end
       it 'prefectureを選択していないと保存できない' do
         @purchase_address.prefecture_id = 1
