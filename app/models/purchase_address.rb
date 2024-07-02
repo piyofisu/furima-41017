@@ -11,6 +11,7 @@ class PurchaseAddress
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
   validates :token, presence: true
+  
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(post: post, prefecture_id: prefecture_id, municipalities: municipalities,
